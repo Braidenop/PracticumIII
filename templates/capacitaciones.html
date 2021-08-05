@@ -1,0 +1,125 @@
+
+
+{% extends 'base.html' %}
+
+{% load static %}
+{% block title %}
+CAPACITACIONES 
+{% endblock %}
+
+
+{% load static %}
+
+{% block content %}
+
+<style type="text/css" scoped>
+#contenido {
+	width: 90%;
+	margin: 10px auto;
+
+}
+
+.banner { background-color: lightgray;
+height: 50vh;
+max-height: 300px;
+background: url("{% static 'img/banner1.jpg' %}") no-repeat center center; background-size: cover;
+color: #fff;
+text-align: center;
+padding: 14%;
+font-size: 31px;
+font-weight: bolder;
+text-shadow: 2px 2px 10px black;
+}
+
+.banner > iframe { 
+height: 100%;
+max-width: 100%;
+}
+
+.cursos {
+	display: inline-table;
+	width: 100%;
+}
+.contenedor {
+	display: table-cell;
+	width: calc(100% / 3);
+	padding: 5%;
+}
+
+.contenedor > .image {
+	height: 100px;
+}
+
+#imgSeguridad	{ background: url("{% static 'img/seguridadinfo.jpg' %}") no-repeat center center; background-size: cover; }
+#imgAtaque		{ background: url("{% static 'img/Ataques.jpg' %}") no-repeat center center; background-size: cover; }
+#imgSitios		{ background: url("{% static 'img/sitiosconfiables.jpg' %}") no-repeat center center; background-size: cover; }
+
+
+@media (max-width: 480px) {
+.cursos { display: inline-block; }
+.contenedor { display: inline-block; width: 100%; padding: 5% 0; }
+}
+</style>
+
+<div id="contenido" >
+
+	<div class="banner" >
+		Evaluar Datos, Información y Contenido Digital
+	</div>
+	</br>
+	</br>
+	<div class="container-fluid" > 
+		<h2 align="text-center" style="text-align: center;"> ESCOJE UNA CAPACITACIÓN </h2>
+	 </div>
+
+	<div class="cursos">
+
+		<div class="contenedor">
+
+			<div class="image" id="imgSeguridad" ></div>
+			<!--<img src="images/seguridad info.jpg" alt="Seg">-->
+
+			<div class="detalles">
+				<h5> Seguridad Informatica</h5>
+				<p> Protección de la infraestructura computacional y todo lo vinculado con la misma, y especialmente la información contenida en una computadora o circulante a través de las redes de computadoras. </p>
+				
+
+				<a href="{% url 'quiz:seguridadInformacion' %}" class="btn btn-info" role="button">Ir al curso</a>
+
+			</div>
+
+		</div>
+
+		<div class="contenedor">
+
+			<div class="image" id="imgAtaque"></div>	
+			<!--<img src="images/Ataques.jpg" alt="ataques">-->
+
+			<div class="detalles">
+				<h5> Ataques Informaticos</h5>
+				<p> Intento de exponer, alterar, desestabilizar, destruir, eliminar para obtener acceso sin autorización o utilizar un activo. </p>
+				<a class="btn btn-info" role="button" href="{% url 'quiz:ataquesInformaticos' %}"> Ir al curso </a>
+			</div>
+			
+		</div>
+
+		<div class="contenedor">
+
+			<div class="image" id="imgSitios"></div>
+			<!--<img src="images/sitiosconfiables.jpg" alt="sitiosconf">-->
+
+			<div class="detalles">
+				<h5> Sitios Confiables </h5> 
+				<p> Cuando se habla de fuentes de información en la web habría que distinguir entre verdaderas fuentes documentales oficiales y  los índices o indicios que sirven a los efectos de iniciar una secuencia de búsqueda. </p>
+				<a href="{% url 'quiz:sitiosConfiables' %}"class="btn btn-info" role="button" > Ir al curso </a>
+			</div>
+			
+		</div>
+		
+	</div>
+
+</div>
+
+
+
+{% endblock %}

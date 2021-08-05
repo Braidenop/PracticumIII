@@ -1,0 +1,73 @@
+{% extends "base.html" %}
+
+{% block title %}
+Seguridad de la información 
+{% endblock %}
+
+{% load static %}
+
+{% block content %}
+<style type="text/css" scoped>
+	.container h1  { text-align: center; } 
+	.container div img {display: inline-block; max-width:90%; max-height:150px; width: auto; height: auto; }
+</style>
+	</br>
+<div class="container" >
+
+
+	<h1> Seguridad de la información </h1>
+	</br>
+	<div>
+	<h3> Definición de la seguridad informática </h3>
+
+	<p>Es el proceso de prevenir y detectar el uso no autorizado de un sistema informático. Es una disciplina que se encarga de proteger la integridad y la privacidad de la información almacenada en un sistema informático. Implica el proceso de proteger contra intrusos el uso de nuestros recursos informáticos con intenciones maliciosas o con intención de obtener ganancias, o incluso la posibilidad de acceder a ellos por accidente.</p>
+
+	<p> La seguridad informática abarca una serie de medidas de seguridad, tales como programas de software de antivirus, firewalls, y otras medidas que dependen del usuario, tales como la activación de la desactivación de ciertas funciones de software, como scripts de Java, ActiveX, cuidar del uso adecuado de la computadora, los recursos de red o de Internet. </p>
+
+	<h3> Areas Principales de la Seguridad Informática </h3>
+	<p> Las cuatro áreas principales que cubre la seguridad informática: </p>
+
+	<ul>
+		
+		<li> Confidencialidad: Sólo los usuarios autorizados pueden acceder a nuestros recursos, datos e información.
+		</li>
+		<li>
+		Disponibilidad: Los datos deben estar disponibles para los usuarios cuando sea necesario.
+		</li>
+		<li>
+		Autenticación: Estás realmente comunicándote con los que piensas que te estás comunicando.
+		</li>
+	</ul>
+	
+	<img src="{% static 'img/carseg.png' %}">
+
+
+	<h3> Importancia de la seguridad informática </h3>
+	<p> 
+	Prevenir el robo de datos tales como números de cuentas bancarias, información de tarjetas de crédito, contraseñas, documentos relacionados con el trabajo, hojas de cálculo, etc. es algo esencial durante las comunicaciones de hoy en día.
+	</p>
+
+	<img src="{% static 'img/seg.png' %}">
+
+	</br>
+	</br>
+
+
+	{% if user.is_authenticated %}
+	<a href="{% url 'quiz:play' %}"class="btn btn-warning" role="button" > Ir a Cuestionario </a>
+	</br>
+	</br>
+	<a href="{% url 'quiz:capacitaciones' %}" class="btn btn-info" role="button"> Escoger otro curso </a>
+ 
+	{% else %}
+	</br>
+	<a href="{% url 'quiz:register' %}"class="btn btn-success" role="button" > Ingresa para evaluarte </a>
+	</br>
+	<a href="{% url 'quiz:capacitaciones' %}" class="btn btn-info" role="button"> Escoger otro curso </a>
+	{% endif %}
+
+</div>
+
+{% endblock %}
+
+

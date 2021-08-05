@@ -1,0 +1,108 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Ataques Informáticos 
+{% endblock %}
+
+{% load static %}
+
+{% block content %}
+
+<style type="text/css" scoped>
+	.container h1, .container div { text-align: center; } 
+	.container div img {display: inline-block; max-width:90%; max-height:150px; width: auto; height: auto; }
+</style>
+
+<div class="container">
+	
+	<h1> Ataques Informáticos  </h1>
+
+<p> Los ataques más utilizados en contra de un sistema informático son los troyanos, los gusanos y la suplantación y espionaje a través de redes sociales. También son populares los ataques DoS/DDoS, que pueden ser usados para interrumpir los servicios. A menudo algunos usuarios autorizados pueden también estar directamente involucrados en el robo de datos o en su mal uso. Pero si se toman las medidas adecuadas, la gran mayoría de este tipo de ataques pueden prevenirse, por ejemplo a través de la creación de diferentes niveles de acceso, o incluso limitando el acceso físico.</p>
+
+<h3> Tipos de Ataques</h3>
+<h4> Malware</h4>
+<p>
+	El malware o software malicioso es una categoría de software diseñado para infiltrarse y dañar un sistema de información sin ser detectado. Aunque el malware se utiliza para referirse de forma general a un software malicioso, existen diversos tipos de malware que responden a características propias y comportamientos diferentes. Entre los malwares más utilizados, destacan el virus, un código maligno que infecta los ficheros del dispositivo en forma de archivo ejecutable (o archivo .exe), y que se vale del desconocimiento de los usuarios para infectar un equipo u ordenador.
+</p>
+
+<h4> Medida </h4>
+<p> Para minimizar el riesgo de malwares, es importante contar con un potente software antivirus y antimalware. En el caso de las empresas, adicionalmente se deberá capacitar al personal para que este no abra adjuntos de correos electrónicos procedentes de fuentes desconocidas o poco confiables. </p>
+
+<div>
+	<img src="{% static 'img/malvare.png' %}">
+</div>
+
+
+<h4> Ataque DDoS</h4>
+<p>
+	Es uno de los ataques más frecuentes en Internet. También conocido como “denegación del servicio distribuida” (que proviene del inglés “distributed denial of service”), consiste en el bloqueo al acceso de un sitio web y, en simultáneo, el ataque al servidor mediante el ingreso de un gran volumen de información basura (por ejemplo, el rellenado de formularios con datos falsos o envío de solicitudes). Esto origina una saturación en el flujo del servidor, colpasa el sitio web o determina la pérdida de conectividad en este espacio. Normalmente, estos ataques se hacen a través de ordenadores infectados con troyanos.
+</p>
+
+<h4> Medida </h4>
+<p> Una medida básica a tomar para evitar un ataque DDoS es adicionar la opción de protección contra este tipo de ataques en el firewall o instalar un sistema anti-DDoS. Aunque lo más recomendable es solicitar al proveedor de servicios de Internet que habilite la protección DDoS desde su red, ya que cuenta con mayor capacidad de protección y el ataque es mitigado antes de consumir recursos del Internet contratado. </p>
+
+<div>
+	<img src="{% static 'img/ataqueDOS.png' %}">
+</div>
+
+<h4> Phishing  </h4>
+<p>
+	El phishing es un método usado por los atacantes para suplantar la identidad de un usuario o de una empresa mediante una comunicación electrónica (correo, mensajería instantánea, etc.), con la finalidad de obtener datos personales y bancarios.
+</p>
+
+<h4> Medida </h4>
+<p> Para evitar caer en este tipo de ataques, es importante verificar que el remitente de cualquier correo electrónico se corresponda con la entidad a la cual dice pertenecer y que no contenga letras o caracteres extraños. Otra forma de identificar estos sitios falsos es observar que en la barra de direcciones aparezca la etiqueta de “sitio seguro” y desconfiar de enlaces insertos en nuestros e-mails. </p>
+
+<div>
+	<img src="{% static 'img/pishing.jpg' %}">
+</div>
+
+
+
+<h3>
+	Otras medidas de seguridad informática que puedes tomar incluyen:
+</h3>
+	
+<ul>
+		
+		<li> Asegurar la instalación de software legalmente adquirido: por lo general el software legal está libre de troyanos o virus.
+		</li>
+		<li>
+		Suites antivirus: con las reglas de configuración y del sistema adecuadamente definidos.
+		</li>
+		<li>
+		Hardware y software cortafuegos: los firewalls ayudan con el bloqueo de usuarios no autorizados que intentan acceder a tu computadora o tu red.
+		</li>
+		<li>
+		Uso de contraseñas complejas y grandes: las contraseñas deben constar de varios caracteres especiales, números y letras. Esto ayuda en gran medida a que un hacker pueda romperla fácilmente.
+		</li>
+		<li>
+		Cuidado con la ingeniería social: a través de las redes sociales los ciberdelincuentes pueden intentar obtener datos e información que pueden utilizar para realizar ataques.
+		</li>
+		<li>
+		Criptografía, especialmente la encriptación: juega un papel importante en mantener nuestra información sensible, segura y secreta.
+		</li>
+	</ul>
+
+
+
+
+
+
+{% if user.is_authenticated %}
+<a href="{% url 'quiz:play' %}"class="btn btn-warning" role="button" > Ir a Cuestionario </a>
+</br>
+</br>
+<a href="{% url 'quiz:capacitaciones' %}" class="btn btn-info" role="button"> Escoger otro curso </a>
+
+{% else %}
+</br>
+<a href="{% url 'quiz:register' %}"class="btn btn-success" role="button" > Ingresa para evaluarte </a>
+</br>
+<a href="{% url 'quiz:capacitaciones' %}" class="btn btn-info" role="button"> Escoger otro curso </a>
+{% endif %}
+
+</div>
+
+
+{% endblock %}
